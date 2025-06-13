@@ -128,11 +128,7 @@
             "autostart": true
         });
         jwplayer('player').resize('100%','100%');
-        jwplayer('player').getAudioTracks({
-            "language": "es",
-            "name": "Español",
-            "defaulttrack": true
-        });
+        console.log(jwplayer('player').getAudioTracks());
     }
     </script>
 </body>
