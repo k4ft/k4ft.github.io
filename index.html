@@ -128,7 +128,13 @@
             "autostart": true
         });
         jwplayer('player').resize('100%','100%');
-        console.log(jwplayer('player').getCurrentAudioTrack());
+        // Get available audio tracks
+const { tracks } = jwplayer('player').getAudioTracks();
+console.log('Available audio tracks:', tracks);
+
+// Get current audio track
+const { index } = jwplayer('player').getCurrentAudioTrack();
+console.log('Current audio track index:', index);
     }
     </script>
 </body>
