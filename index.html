@@ -17,7 +17,6 @@
             background-color: #333;
             position: fixed;
             overflow: auto;
-            transition: transform 0.3s;
         }
         .sidebar button {
             width: 100%;
@@ -84,7 +83,7 @@
     <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9Db21lZHlDZW50cmFsL1NBX0xpdmVfZGFzaF9lbmMvQ29tZWR5Q2VudHJhbC5tcGR8NDAxM2Y3ODRjNWVmNDMxOGFkNDcwMjRlNjFlYjA5NGV8YmFkNDMzYTU0N2Y5N2M3ZjY1Y2RhNWU4M2I4ZGQ0MTY=')">Comedy Central</button>
     <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9Hb3VybWV0L1NBX0xpdmVfZGFzaF9lbmMvR291cm1ldC5tcGR8OTNkODUzYWM0YzhlMjRjZjAyOTVmNmY5N2VlNTNiZDN8ZmE1ODE3ZmFiNGZiMDU0Y2NlYTFhYmI5ZjNkNzY3ZWQ=')">Gourmet</button>
     <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9TdW5fQ2hhbm5lbC9TQV9MaXZlX2Rhc2hfZW5jL1N1bl9DaGFubmVsLm1wZHwxNTgxNzc2OTJhYTM0NjNlYWU1ZjRlMWY3MjQwM2U5Y3wxYzZjMDI2ZmJhOWNmN2VjYjU3NmM3YmVkY2UwZWFkNA==')">Sun Channel</button>
-    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9BbnRlbmFfMy9TQV9MaXZlX2Rhc2hfZW5jL0FudGVuYV8zLm1wZHxkNmZmODgxYTZmMDc5ODZhODBkNmFkNmYwNDFiNTdkNHw0ZmRmMjhhMGFiOTEzNTZjYTU1YTc1ZjRlOWJmOGM5Mg==')">Antena 3</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9BbnRlbmFfMy9TQV9MaXZlX2Rhc2hfZW5jL0FudGVuYV8zLm1wZHwxZTFhZDQyMmE2NzE0NDgyYjY2ZmE3MDJjMTZlNTBjNnw0ZmRmMjhhMGFiOTEzNTZjYTU1YTc1ZjRlOWJmOGM5Mg==')">Antena 3</button>
     <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9UVl9Fc3BhbmEvU0FfTGl2ZV9kYXNoX2VuYy9UVl9Fc3BhbmEubXBkfDUzZTBhMzc0MWUyZTRmZjU4NDNmMTY1YjUzMzA5MDg4fDQ1MDk1Y2FhYmQ5YTM1OWNkN2VhMzkxMGQ4NjVkNjQz')">TVE</button>
     <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9BZHVsdF9Td2ltL1NBX0xpdmVfZGFzaF9lbmMvQWR1bHRfU3dpbS5tcGR8OWJlMTQzMmUxZTU5NGM4ZDA2NDhhNDRkM2Q5ZjBjNDZ8OGU2Yzc4NWIxNGQ5NzNjNTA0MDc0YjE5MjBmMTFiMTU=')">Adult Swim</button>
     <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9Ub29uY2FzdC9TQV9MaXZlX2Rhc2hfZW5jL1Rvb25jYXN0Lm1wZHwxMDYzOGE3MjJlYjU0YzY0YmZiMGU3YTc3NDgzNjg2YXw0MWE3ZDNkNTIyZTE5MjE1YjdlOGY2MTFiNjkwMmQ2MQ==')">Tooncast</button>
@@ -125,10 +124,24 @@
                     "key": `${url[2]}`
                 }
             },
+            "tracks": [{
+                "autoselect": true,
+                "defaulttrack": false,
+                "language": "en",
+                "name": "English",
+                "hlsjsIndex": 0
+                },
+                {
+                "autoselect": true,
+                "defaulttrack": true,
+                "language": "sp",
+                "name": "Spanish",
+                "hlsjsIndex": 1
+                }
+            ],
             "autostart": true
         });
         jwplayer('player').resize('100%','100%');
-        jwplayer('player').setCurrentAudioTrack({"index": 1});
     }
     </script>
 </body>
