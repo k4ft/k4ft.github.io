@@ -33,15 +33,10 @@
         }
         .content {
             margin-left: 100px;
-            flex-grow: 1;
+            width: 100%;
             height: 100vh;
             background-color: #000;
             overflow: auto;
-        }
-        .content div {
-            width: 100%;
-            height: 100%;
-            border: none;
         }
     </style>
 </head>
@@ -119,11 +114,10 @@
     </div>
     <div class="content"><div id="player"></div></div>
     <script>
-    player = document.getElementById('player');
     function loadPlayer(enc) {
         var dec = atob(enc);
         var url = dec.split('|');
-        jwplayer(player).setup({
+        jwplayer('player').setup({
             "file": `${url[0]}`,
             "drm": {
                 "clearkey": {
@@ -131,6 +125,13 @@
                     "key": `${url[2]}`
                 }
             },
+            "autostart": true
+        });
+        jwplayer('player').resize('100%','100%');
+        jwplayer('player').getAudioTracks({
+            "language": "es",
+            "name": "Español",
+            "defaulttrack": true
         });
     }
     </script>
