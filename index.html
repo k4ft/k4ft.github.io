@@ -185,7 +185,7 @@
             button.classList.add('jw-icon', 'btn-compressor');
 
             // Insertar el botón en la barra de controles del reproductor
-            jwplayer('player').getContainer().querySelector('.jw-controls').appendChild(button);
+            jwplayer('player').addButton(buttonHTML, 'Compresor', configureCompressor(e), 'Compresor', 'btn-compressor');
 
             // Agregar evento al botón para activar/desactivar el compresor
             var compressorEnabled = false;
