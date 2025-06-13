@@ -134,7 +134,7 @@
                 {
                 "autoselect": true,
                 "defaulttrack": true,
-                "language": "sp",
+                "language": "es",
                 "name": "Spanish",
                 "hlsjsIndex": 1
                 }
@@ -142,6 +142,7 @@
             "autostart": true
         });
         jwplayer('player').resize('100%','100%');
+        jwplayer('player').on("play", function(){jwplayer('player').setCurrentAudioTrack(1)});
     }
     </script>
 </body>
