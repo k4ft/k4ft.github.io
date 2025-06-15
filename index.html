@@ -129,7 +129,7 @@ e=(a.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon btn-c
 e.currentTarget);
 e.querySelector("svg").classList.contains("btn-compressor-on")?(e.querySelector("svg").replaceWith(t.content.firstChild),e.querySelector(".jw-text").innerText="Activar compresor",comp(!1)):(e.querySelector("svg").replaceWith(a.content.firstChild),e.querySelector(".jw-text").innerText="Desactivar compresor",comp(!0))
 }
-function loadPlayer(enc){dec=atob(enc);url=dec.split('|');jwplayer('player').setup({"file":`${url[0]}`,"drm":{"clearkey":{"keyId":`${url[1]}`,"key":`${url[2]}`},"headers":[`${h}`]},"autostart":true});jwplayer('player').resize('100%','100%');jwplayer('player').on('ready',comp(!0));jwplayer('player').on('ready',function(){jwplayer('player').addButton(cbutton,"Desactivar compresor",cb,"btn-compressor","btn-compressor")});jwplayer('player').on('play', function(){jwplayer('player').setCurrentAudioTrack(1)})}
+function loadPlayer(enc){dec=atob(enc);url=dec.split('|');jwplayer('player').setup({"file":`${url[0]}`,"drm":{"clearkey":{"keyId":`${url[1]}`,"key":`${url[2]}`},"headers":[`${h}`]},"autostart":true});jwplayer('player').resize('100%','100%');jwplayer('player').on('ready',function(){jwplayer('player').addButton(cbutton,"Desactivar compresor",cb,"btn-compressor","btn-compressor")});jwplayer('player').on('ready',comp(true));jwplayer('player').on('play', function(){jwplayer('player').setCurrentAudioTrack(1)})}
     </script>
 </body>
 </html>
