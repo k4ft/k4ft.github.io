@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>TV</title>
+    <script src="https://content.jwplatform.com/libraries/Z79JsmAO.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Gabriola, sans-serif;
+        }
+        .sidebar {
+            width: 100px;
+            height: 100%;
+            background-color: #333;
+            position: fixed;
+            overflow: auto;
+        }
+        .sidebar button {
+            width: 100%;
+            background-color: #444;
+            color: white;
+            border: 2px solid #333;
+            cursor: pointer;
+            padding: 7px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .sidebar button:focus {
+            background-color: #333;
+        }
+        .content {
+            margin-left: 100px;
+            width: 100%;
+            height: 100vh;
+            background-color: #000;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9UZWxlbWF4L1NBX0xpdmVfZGFzaF9lbmMvVGVsZW1heC5tcGR8ZTdlYzM2NGFkNjg1NGZlZGFkNzk3NTM4Y2I1ODc4MGR8NTdkZmIzZmNhMmNhMzViMzdmZjgxYzM1NTk1ZTliZTg=')">Telemax</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9Ub2RvTm90aWNpYXMvU0FfTGl2ZV9kYXNoX2VuYy9Ub2RvTm90aWNpYXMubXBkfDdjZWIxY2QwNjIyY2Q3ZTg4ZmNkYzk5ZmUzYTU1ZGU2fDk1MTYzNzA5M2Q0MWM3Mzg4YTFlZjNmNjIwY2ZlYTIx')">TN</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy8yNl9UVl9IRC9TQV9MaXZlX2Rhc2hfZW5jLzI2X1RWX0hELm1wZHxlMzJhYWE0YjY3NDMwYjNiNTFiZTFlZmNlNWE3NGFjNXxhZDYwYzVlMWQzNzhhOTcyNzFiZjg2ODhmMDk0ZDA5Mg==')">Canal 26</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9BbWVyaWNhMjQvU0FfTGl2ZV9kYXNoX2VuYy9BbWVyaWNhMjQubXBkfDNiMWIwMjdkZDAxMWFmMjBmZDk5NTZjMTZkYzA4NGZifDQ1Zjc1YWFjZjA2NTkzYzliNjkzZmU0MjdjNjdlNWI4')">A24</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9JbnZlc3RpZ2FjaW9uX1BlcmlvZGlzdGljYS9TQV9MaXZlX2Rhc2hfZW5jL0ludmVzdGlnYWNpb25fUGVyaW9kaXN0aWNhLm1wZHw1Mjk5Zjk2Zjg3M2FhMGYwZTQ3ZWRjNGUxNTc4NDcxN3w5ZDUzMTc2YjA5Njk0OTJmMmQ5M2YxODY3YmUxZGNlMQ')">IP Noticias</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9OZXRfVFYvU0FfTGl2ZV9kYXNoX2VuYy9OZXRfVFYubXBkfDg5ZDQzMzE2NmVkZDMxZDU2ZGYyYTU5ZGY4ZWM2NzA0fGIyMDE1ZmFkZWQwYTQ1NmQxMGFhOGRiMWI0Y2JhYzY4')">Net TV</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9BcnRlYXJIRC9TQV9MaXZlX2Rhc2hfZW5jL0FydGVhckhELm1wZHw1MTc5MDE3ZjQ5MzI2ZDE0YWYwYTljZWVjODMxYWVlNnwwOWI0YTQ2M2IwMjllYmMyOGEyODhiZWQyZGE3MGE3Ng==')">El Trece</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9UZWxlZmVIRC9TQV9MaXZlX2Rhc2hfZW5jL1RlbGVmZUhELm1wZHwzY2VjMWIxZWE5Nzk5ZGRhNTU5NmU2NGYzN2U1ZWQyMHxjNjlmM2FmZGUyMDg1ZGNhYWFkZGJmNTUyNDZhMDMyMw==')">Telefe</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9DYW5hbDkvU0FfTGl2ZV9kYXNoX2VuYy9DYW5hbDkubXBkfDI0ZjRmZjIxMTEzNmFlNjUxMmExYjU1MjIwMGRiNDA1fDYwMjEyMmY4NDI2YzVjOTQyYjhjMThkMjk5Y2M2MDIw')">El Nueve</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9DYW5hbDcvU0FfTGl2ZV9kYXNoX2VuYy9DYW5hbDcubXBkfGNjOGM4MmFjMmVjN2U5Nzk5NTI3YzI5ZGI3MzU0ZTgxfGNjNGFhZTE3M2RkMmVmMTdhZTI2YmUzZjdhZTg3NjYy')">TV Publica</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9BbWVyaWNhVFYvU0FfTGl2ZV9kYXNoX2VuYy9BbWVyaWNhVFYubXBkfDhlYTIzNWNlMDgyNjQwOGIyMjFjNDk4MTE1YTliNjJkfDdhYTkyNjZlZDkxZWE0NTEwNDgzMzcwMDI5ZGZjZjQ1')">America</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9DYW5hbF8xMl9DQkEvU0FfTGl2ZV9kYXNoX2VuYy9DYW5hbF8xMl9DQkEubXBkfDkwNDIyNjQwZDNlODQ2MTU5ZmE0NTBmODM4NzBlZDRhfGFiYjNjZDk0YWVjZTFhNDYyZGYyNWE4ZjIxMDg1Y2Nh')">El Doce</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9DYW5hbF84X0NCQS9TQV9MaXZlX2Rhc2hfZW5jL0NhbmFsXzhfQ0JBLm1wZHwxMDNjZTIxNGI0ZDA0YzhlYjRkZDQzNjcwZTk1NmRhZHwyMGUwMzA1NzZiOGRjNGRmMGQxYzY4ZTE2YWYzYmMwZg==')">Telefe Cordoba</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9Wb2x2ZXIvU0FfTGl2ZV9kYXNoX2VuYy9Wb2x2ZXIubXBkfDE5NGU1MzE4NGE0MjRjZTY5ODlhZDgyYzVmMjhmYmM1fDY1ZDYwYzVjYzRkZTAzMTE3MmJlMGE2YTUxZWRiZGZl')">Volver</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9Vbml2ZXJzYWxfQ2luZW1hL1NBX0xpdmVfZGFzaF9lbmMvVW5pdmVyc2FsX0NpbmVtYS5tcGR8ZjZhZTJlMTcxNzMwNTVlNGNhNjlkYzE4OTYzNDA2YWV8NWE5NTVjMjllYjg4YTBiNGM5YTI1MzhjYzRiM2FlYTI=')">Universal Cinema</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9QYXJhbW91bnQvU0FfTGl2ZV9kYXNoX2VuYy9QYXJhbW91bnQubXBkfGI4NWI3MTBlY2ZmM2UzOGYzMWZjOGUyNDliMWMxY2VmfGExNTQ0YzE5M2RkZTZmODg1OGM5MzU4ZWU2OWE2MGE3')">Paramount</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9DaW5lbWF4L1NBX0xpdmVfZGFzaF9lbmMvQ2luZW1heC5tcGR8OTc3OTI4YTkyYjgyYmEzNzgxNzQxYTY0NzBmOGY0NWJ8NTFmNGU2MjgyN2MxMjhmNzIxMGI3OWExMTU4NzY2MWE=')">Cinemax</button>
+    <button onclick="loadPlayerC('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9DaW5lY2FuYWxIRC9TQV9MaXZlX2Rhc2hfZW5jL0NpbmVjYW5hbEhELm1wZHw2MDAzZTkyZGQwZDlmNTQ4MzI5MDE1YzllMTVkZDU3OHwyMTNjZjg1Y2I1ZjlmZTU2OTc1NzAwNGE3N2UwNTk0OA==')">Cinecanal</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9Tb255X01vdmllcy9TQV9MaXZlX2Rhc2hfZW5jL1NvbnlfTW92aWVzLm1wZHw4OGI5YzQxZTcyYWNkNWI1ODliYmZiNDc3Njk2OTc4MXw0M2I5NDAzZjdhOWUyOGZjMmQ3Y2JmMTAzNzNiODVhYQ==')">Sony Movies</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9GWEhEL1NBX0xpdmVfZGFzaF9lbmMvRlhIRC5tcGR8OWFiOWM0MmM3MTNlMGZiNTUxN2RjNzdjYzE5ZDY3NTV8ZDhjMjcxYjgyMzg3ZTYwOWI2YzE5ZTVlNzkyNDBhZmY=')">FX</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9BTUMvU0FfTGl2ZV9kYXNoX2VuYy9BTUMubXBkfDFmYTZhODZmZDgwYjZkMTQyNWRkZTc0NDgyYjVkYzljfDc0NGMzNjM2ZDU3YTY1MWFiNDQ0Y2Y5ZmU1Zjk1YjMz')">AMC</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9UTlRfSERfQXJnL1NBX0xpdmVfZGFzaF9lbmMvVE5UX0hEX0FyZy5tcGR8ZmFhZDE3MjJhNTc1ZjRkOWVjN2I3NzRkYjYzYzg3OWN8Y2YwMTg0ODMwMzQ0YmEzNmFkMmZmZWY5ZGQyZGQ5ZDA=')">TNT</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9TcGFjZS9TQV9MaXZlX2Rhc2hfZW5jL1NwYWNlLm1wZHwwOTQyZTRlY2QxYmQzNTY3ZThmOTQ0N2Y0NWMyMGExMnxlZmNhNjI2NGYwNGNmNzM3M2RlMGMzMGVjNzlmZTkwOQ==')">Space</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9GT1hIRC9TQV9MaXZlX2Rhc2hfZW5jL0ZPWEhELm1wZHw4MDIzZTg1ZWY5ZDE3NTYxZWUxYjQyNDE3OWIxYjE1ZXw0NzdhZDE4OWYxZmNkMmJhZWMwMjYwNjgxMDdmODYyZg==')">Star Channel</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9ESEUvU0FfTGl2ZV9kYXNoX2VuYy9ESEUubXBkfGZmODAwMTU2ZjgxZjcwYzY4N2VjY2FhZGVkYzJjYTE1fDkzN2JhMTMwMWUyNzAwOGIzNGQwMmI5ZDhhMzFhMGRi')">DHE</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9BRUhEL1NBX0xpdmVfZGFzaF9lbmMvQUVIRC5tcGR8ZGIxMjAzNTYyN2E0YjNkNzE5OGI3NjFmMzZiNGEyOTB8ODBjYTc2MWE4NzU5OTJhYzBlNTBiMDg1MWQ1NTYzZmU=')">A&E</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9TdHVkaW9fVW5pdmVyc2FsL1NBX0xpdmVfZGFzaF9lbmMvU3R1ZGlvX1VuaXZlcnNhbC5tcGR8ZDliNTQxZTNjZDA2NGQ1Njk4NDNkYTQyNzg4ZDQyNjN8YmJhNWQyNmFkNTA1MWZiM2YyY2Y3ZTNkZDhhNGE3ZDg=')">Studio Universal</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9UQ00vU0FfTGl2ZV9kYXNoX2VuYy9UQ00ubXBkfGE1ZjQ0YTVlMzA3MTRjZjNiY2VlN2M3ZjE1YTA4YjRlfGMzYzE0MWFlOTQxYWI5NzUwMzM5YzNhZjQ1YTY1Y2Uy')">TCM</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9BM19DaW5lL1NBX0xpdmVfZGFzaF9lbmMvQTNfQ2luZS5tcGR8ZDZmZjg4MWE2ZjA3OTg2YTgwZDZhZDZmMDQxYjU3ZDR8YjQwMWM4N2MyYWIxMWExYTQ4OGVlMWM0NzRiMTA5YWU=')">A3 Cine</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNGVkcy9IQk9IRC9TQV9MaXZlX2Rhc2hfZW5jL0hCT0hELm1wZHw1MzE3MjgzZjQxMTBmYWMzZmIzYTBiZWNkOWY2NDhiY3wwNzU0YTAzYzkyNmIxMjQ3MjE2ZTAxZDlkYmNmYWMyOA==')">HBO</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9IQk9fMi9TQV9MaXZlX2Rhc2hfZW5jL0hCT18yLm1wZHxjOTBjYzU3YWQyYzQzNmU1YTc3ZGIyZjhkOWRiMmQ4NXwwNGY2YzczOTg0YmRjZmZkMDEzMDUwNjA4NDk3OTM1ZA==')">HBO 2</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9IQk9fUGx1cy9TQV9MaXZlX2Rhc2hfZW5jL0hCT19QbHVzLm1wZHxmMGU3ZjdkNDU4OTkwZWRmYWI3Yjk4YjQxMjU2NDYxNXw3OTIwNTc1NGI3Zjg0YTYyNjYxYzJkYmU5ZGU1ZGQ1ZA==')">HBO Plus</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9IQk9fTXVuZGkvU0FfTGl2ZV9kYXNoX2VuYy9IQk9fTXVuZGkubXBkfDc4MjFiMjY2MjE0OGZlMzMzZDUxOTFhY2JiOGE1YzFmfGFlNDNmM2UyNTQ1MjM3ZWJkYTU4YjEzODEzYjVkMzI4')">HBO Mundi</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9IQk9fRXh0cmVtZS9TQV9MaXZlX2Rhc2hfZW5jL0hCT19FeHRyZW1lLm1wZHxkNTA0MDExYmJlZjQ2N2MwZGUzYTc1MzRlMzAyYTZkNHwzMzQxMDNlMmFiZTE2ZmFhN2Y5YWIyZTMwOTdjNWE1OA==')">HBO Xtreme</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9IQk9fUE9QL1NBX0xpdmVfZGFzaF9lbmMvSEJPX1BPUC5tcGR8ZjRlMWNlNWNlZjdlOWExMTBmZTk2OGY4ODgxYjIxZmF8NmJiZTIwNjJiMTUwYjExNDk2Y2RkNWZiZGQ5Yzg5ZDY=')">HBO Pop</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9IQk9fRmFtaWx5L1NBX0xpdmVfZGFzaF9lbmMvSEJPX0ZhbWlseS5tcGR8NTM1NDczMTMyZjY4MDgyMTYwYjQ4OTQ4MmNhMzVmOGV8ZTkwZmQ5MWZjZDNmYzgwOWJlZDJiMWMwZDM3ZjcyOTc=')">HBO Family</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9Tb255SEQvU0FfTGl2ZV9kYXNoX2VuYy9Tb255SEQubXBkfGZkOTYxOWY5ZDdjMmQ1MTE1YTMzOTk0MTI3OWUwYjRifGJmNTU2MzVlNjU5MWY5MDU2NTlmYTI3YWIzY2EyODEy')">Sony Channel</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9XYXJuZXJIRC9TQV9MaXZlX2Rhc2hfZW5jL1dhcm5lckhELm1wZHwwNjliZDNmMGI2YzI3OTQ2N2UwODU0OWYxN2JmNWJkMHw1YWZhN2UzNjlhNmRlMTA5MzgxOGE4NWFmOTEyYTc3NQ==')">Warner</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9Vbml2ZXJzYWxfQ2hhbm5lbF9IRC9TQV9MaXZlX2Rhc2hfZW5jL1VuaXZlcnNhbF9DaGFubmVsX0hELm1wZHw2Y2Y5YTEzZDZmZDY1YTBmMmUxY2VlMzk2OWFhYjlmNXxlYTYxYzNjMWFkZWU3MWI1YzJlOTc0NGU0MWQ0Yjc1Zg==')">Universal Channel</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9Db21lZHlDZW50cmFsL1NBX0xpdmVfZGFzaF9lbmMvQ29tZWR5Q2VudHJhbC5tcGR8NDAxM2Y3ODRjNWVmNDMxOGFkNDcwMjRlNjFlYjA5NGV8YmFkNDMzYTU0N2Y5N2M3ZjY1Y2RhNWU4M2I4ZGQ0MTY=')">Comedy Central</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9Hb3VybWV0L1NBX0xpdmVfZGFzaF9lbmMvR291cm1ldC5tcGR8OTNkODUzYWM0YzhlMjRjZjAyOTVmNmY5N2VlNTNiZDN8ZmE1ODE3ZmFiNGZiMDU0Y2NlYTFhYmI5ZjNkNzY3ZWQ=')">Gourmet</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9TdW5fQ2hhbm5lbC9TQV9MaXZlX2Rhc2hfZW5jL1N1bl9DaGFubmVsLm1wZHwxNTgxNzc2OTJhYTM0NjNlYWU1ZjRlMWY3MjQwM2U5Y3wxYzZjMDI2ZmJhOWNmN2VjYjU3NmM3YmVkY2UwZWFkNA==')">Sun Channel</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9BbnRlbmFfMy9TQV9MaXZlX2Rhc2hfZW5jL0FudGVuYV8zLm1wZHwxZTFhZDQyMmE2NzE0NDgyYjY2ZmE3MDJjMTZlNTBjNnw0ZmRmMjhhMGFiOTEzNTZjYTU1YTc1ZjRlOWJmOGM5Mg==')">Antena 3</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9UVl9Fc3BhbmEvU0FfTGl2ZV9kYXNoX2VuYy9UVl9Fc3BhbmEubXBkfDUzZTBhMzc0MWUyZTRmZjU4NDNmMTY1YjUzMzA5MDg4fDQ1MDk1Y2FhYmQ5YTM1OWNkN2VhMzkxMGQ4NjVkNjQz')">TVE</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9BZHVsdF9Td2ltL1NBX0xpdmVfZGFzaF9lbmMvQWR1bHRfU3dpbS5tcGR8OWJlMTQzMmUxZTU5NGM4ZDA2NDhhNDRkM2Q5ZjBjNDZ8OGU2Yzc4NWIxNGQ5NzNjNTA0MDc0YjE5MjBmMTFiMTU=')">Adult Swim</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9Ub29uY2FzdC9TQV9MaXZlX2Rhc2hfZW5jL1Rvb25jYXN0Lm1wZHwxMDYzOGE3MjJlYjU0YzY0YmZiMGU3YTc3NDgzNjg2YXw0MWE3ZDNkNTIyZTE5MjE1YjdlOGY2MTFiNjkwMmQ2MQ==')">Tooncast</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9DYXJ0b29uTmV0d29yay9TQV9MaXZlX2Rhc2hfZW5jL0NhcnRvb25OZXR3b3JrLm1wZHxkN2RmNTZlZmFhMzZhNzExNDFkMjM4ODU0Y2M0NmQxZHw4YWJiMmVlOTE1MGQ4YjJhZjhlYmVjMGRlMGY4MzNjOA==')">Cartoon Network</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9OaWNrZWxvZGVvbi9TQV9MaXZlX2Rhc2hfZW5jL05pY2tlbG9kZW9uLm1wZHw2MWMxOGNlZmVjYzJkMDY3YmVhYTlmZjE4MTMwNTM0NXwzOGQ2ZjY1MGNiZjlhMzhmZDlmMzVjMDFmOThlNjQ3YQ==')">Nick</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9EcmVhbXdvcmtzL1NBX0xpdmVfZGFzaF9lbmMvRHJlYW13b3Jrcy5tcGR8N2YzMGM0M2U0NzU0NDQxMjIyMWZkNjQyMDFkOTJmNGJ8ZjgzZDA5ZDc1YTA5NDZiMWQ3MWFhNDhjMjAxYjRkOGI=')">Dream Works</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9EaXNjb3ZlcnlfS2lkcy9TQV9MaXZlX2Rhc2hfZW5jL0Rpc2NvdmVyeV9LaWRzLm1wZHxmZmIyZjBmNjNjMjNhMzU5MmQ0NjUzZTkzOGI5Y2ExOXxkMzY2MWFlODgxZmM1NWZjN2ExNTgxNWNkNDM5NzQ3Yg==')">Discovery Kids</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9BbmltYWxQbGFuZXQvU0FfTGl2ZV9kYXNoX2VuYy9BbmltYWxQbGFuZXQubXBkfDQxNDZhOGVjYmIwNTQwZGM4MDdjNjM4OWVlODdlMGJjfDBjM2NkYzFiM2U0NjE3YzU3MzYxMjY1ZTlmYTRjNWJk')">Animal Planet</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9EaXNjb3ZlcnlfU2NpZW5jZS9TQV9MaXZlX2Rhc2hfZW5jL0Rpc2NvdmVyeV9TY2llbmNlLm1wZHw0NmJhNDA5ZmIwNGU0MGZiODZiNDY2ZDk3ZTNhOTU4OHxmMTI5ZmI5YjVkMjEzZTIwZTJhYmU1MjliOGNmMjU5Nw==')">Discovery Science</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9EaXNjb3ZlcnlIRC9TQV9MaXZlX2Rhc2hfZW5jL0Rpc2NvdmVyeUhELm1wZHxjMjgzYzg0YTdhZjBkN2M4YjliNjEyYThmYjIyYTAwMXxmNDU1MTBjNzIxZWViZDZlYWE4NmEyZTE2Y2NiZDc3ZA==')">Discovery</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9OYXRHZW9IRC9TQV9MaXZlX2Rhc2hfZW5jL05hdEdlb0hELm1wZHw0YmUwYzYxY2VkZGM2MjI5NGNjOWUyM2I2MjdhZjUzZHw4NTJjMTkzNWQxMWMzYzUzZDBhMWNlZmYzYmIzYmYxNg==')">Nat Geo</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9IaXN0b3J5SEQvU0FfTGl2ZV9kYXNoX2VuYy9IaXN0b3J5SEQubXBkfGU4MjMxOGU1MThiYTcwY2VhM2Q3YjM3YmVmOTllNjkyfGEwNWZjYjYzNGMwNzFhNTE0ZTMwMzllMWMyNzRiNGRi')">History</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9IaXN0b3J5XzIvU0FfTGl2ZV9kYXNoX2VuYy9IaXN0b3J5XzIubXBkfGVjYmU5N2VjMzQ3ODQzMDRiMzkwYTEyYmEzODU0Y2NmfDVhMGVlMzZlZDliODkyMGNiMTk1NDZmZDkyZjJkNDE1')">History2</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9NVFYwMC9TQV9MaXZlX2Rhc2hfZW5jL01UVjAwLm1wZHwxZjBjMDllZDllNTg0MWNmODY3YmE2ZWIzY2RmZDYxZHw4MDJjODljNmJhZTZhMjQ1YWFhZmNmNDBjMTk4NmZjMQ==')">MTV 00s</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9NVFZfSGl0cy9TQV9MaXZlX2Rhc2hfZW5jL01UVl9IaXRzLm1wZHw2MTAwOGRmYzg2NzU0NGNkODcyZGU5OWIxZjJiODJjZnw3MTY0NDk3NTYzMTZiOTFjNTQ4MDNhYWEyMmEyZmJmMA==')">MTV Hits</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9GbG93X011c2ljX1hQL1NBX0xpdmVfZGFzaF9lbmMvRmxvd19NdXNpY19YUC5tcGR8YjJhYWU0NGE3NDE0NGJlOGIyMTE4ZTIwZDE0MTJiYWJ8OGE3YWU5OTZkMTJkOGQ1ZDU2MzdkMTA0NGY4ZTA4Yjc=')">Flow Music XP</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9GbG93X011c2ljXzEvU0FfTGl2ZV9kYXNoX2VuYy9GbG93X011c2ljXzEubXBkfGYzNGNkNzcwOWYwOTNkMjNkNGRiMDA5MTA3ZDk2ODYyfGQ4YTgyOTEzOGQ5NzBiNDVlODY3Yzk3MzNhMzFiMmYw')">Flow Music 1</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9GbG93X011c2ljXzIvU0FfTGl2ZV9kYXNoX2VuYy9GbG93X011c2ljXzIubXBkfDU5NmI1OTk1ODBiMzlhZTJmM2M0MTNmN2VhZTM2OTAyfDJkN2UzZDVkMzFmNjg2OTBmZDg3N2ExMTFmODRlOGUz')">Flow Music 2</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9GbG93X011c2ljXzMvU0FfTGl2ZV9kYXNoX2VuYy9GbG93X011c2ljXzMubXBkfGUwNzhiMTVlZDc3MGVjNzFmODAzYzBlY2M0M2RlMDMzfDcwMTBiY2NkYTU0NGY3NGQxYjQyNWM0Y2ViZDA4MmQ0')">Flow Music 3</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9UeUNTcG9ydC9TQV9MaXZlX2Rhc2hfZW5jL1R5Q1Nwb3J0Lm1wZHwyYjIxYzhmYTlhMzI5Y2NlMzExYTRjNGE0YWE5OTZhMXxjYzIzZWExZmIzMjYyOWY5ZTFmNDhjOGRlZWFlM2U1Yg==')">TyC Sports</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9FU1BOMkhEL1NBX0xpdmVfZGFzaF9lbmMvRVNQTjJIRC5tcGR8ZTg4NGI3MTFhYjExMWJlYjhhN2JhMWU3YmNiZGM5YmZ8Y2I4OWVlMzk2MTU5OWUzZTY0OGE1YWFkNjA4OTVmMzQ=')">ESPN</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9FU1BOMl9BcmcvU0FfTGl2ZV9kYXNoX2VuYy9FU1BOMl9BcmcubXBkfDY1YTViZmEzYzdhNzJkZGU2MGJlOWIwYzc0MDZjOGZjfDBiNDBhZTlmNzhhN2JhYzNiNTdlY2JmNzJkM2MwODFl')">ESPN 2</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9FU1BOMy9TQV9MaXZlX2Rhc2hfZW5jL0VTUE4zLm1wZHxmNGM5Zjk3ZTJhMzZmZWFiMGU1MDc3ZjJiNDRjYmM0ZXwxNzQzY2QwM2RmZTM3MzZiMmM5NWRhOTFhNzgzYWYzOA==')">ESPN 3</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9Gb3hTcG9ydHMvU0FfTGl2ZV9kYXNoX2VuYy9Gb3hTcG9ydHMubXBkfGNiYzJhMGM3YTM4ZGYwYWEzMzMzY2Q3MTg0MWQzYjBkfGFhYzYxYjczMGUyYWMxZGYyM2YxZTg3MmU3NTQxYzFi')">Fox Sports</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9Gb3hTcG9ydHMySEQvU0FfTGl2ZV9kYXNoX2VuYy9Gb3hTcG9ydHMySEQubXBkfGM5OGRkZmZjNDcwZmU0NDlhZTFhOGQ2NDkyMTE2OTc2fDUwODZkMzcwZTg0MDAxMDIzMmNmNDUzMmIxNmUxOTdm')">Fox Sports 2</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9Gb3hTcG9ydHMzSEQvU0FfTGl2ZV9kYXNoX2VuYy9Gb3hTcG9ydHMzSEQubXBkfDU1YjQ3MzkwY2Y5ZTQ5OTdkYWU2ZGFjODVlMDU3ODc1fGZhMzllODU1NTQzYzVkNzBmMzA2MDBkNTllNWU0YzFi')">Fox Sports 3</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9UTlRfU3BvcnRzX0hEL1NBX0xpdmVfZGFzaF9lbmMvVE5UX1Nwb3J0c19IRC5tcGR8YmM4MGZhM2RhNjk2ZTUwM2Y5NDBmZGU1ZjY4MWExYzV8ZWE0NmU0ZTlmMTEzMmU4ZGQ3MWZiNzdmN2Q1NTA1OGE=')">TNT Sports</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9Gb3hfU3BvcnRzX1ByZW1pdW5fSEQvU0FfTGl2ZV9kYXNoX2VuYy9Gb3hfU3BvcnRzX1ByZW1pdW5fSEQubXBkfDRjMjMwZGJjN2Y2YTRiZmE2YWQwYWE3M2ZmNzkyMzc0fDQxODZhN2MyYTE1ZjU5MGE5Mzk5ODg2ZmVhZWM0MjU3')">ESPN Premium</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jM2Vkcy9FdmVudG9zMUhEL1NBX0xpdmVfZGFzaF9lbmMvRXZlbnRvczFIRC5tcGR8NWM4NmUyMzczMTdjMjIzMWFjMWJjMTMwZTk5NWZhZDZ8ZGNhY2Y3YjIzOWVlMDNkZjNjNjljYTExZGJjZGU0ZWI=')">Eventos 1</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jNmVkcy9FdmVudG9zXzJfSEQvU0FfTGl2ZV9kYXNoX2VuYy9FdmVudG9zXzJfSEQubXBkfGU1NGU5ZWE4N2E2MzQ2NThmYmJhMGUzODBhYTcwMWE3fDRlNDg2ZDI1ZDdkMGU3ZDEzMTc0M2IyODU5NjNjNjQz')">Eventos 2</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9FdmVudG9zX0hEX1V5L1NBX0xpdmVfZGFzaF9lbmMvRXZlbnRvc19IRF9VeS5tcGR8NDhkMGUzNGM4Nzk3YzVjMmE3NDJkMjYzMGE4ZmI5NzV8ZmI1ZDEyYjlkOGZlYmU4MzZlNTY3MGFiZDAwM2RkY2E=')">Eventos UY</button>
+    <button onclick="loadPlayer('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9jN2Vkcy9HRU5fVFYvU0FfTGl2ZV9kYXNoX2VuYy9HRU5fVFYubXBkfDQ5ZWI5MjRiYTk5OGNhN2ZiYmFlZTMwZGNlZjFlY2I0fDZlMTMxYjA0YjJlODc1OThmYjU4OGFjMjA1NjczNjk4')">GEN TV</button>
+    </div>
+    <div class="content"><div id="player"></div></div>
+    <script>
+    cbutton='<svg xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon btn-compressor-on" viewBox="0 0 640 512"><path d="M320 0c12 0 22.1 8.8 23.8 20.7l42 304.4L424.3 84.2c1.9-11.7 12-20.3 23.9-20.2s21.9 8.9 23.6 20.6l28.2 197.3 20.5-102.6c2.2-10.8 11.3-18.7 22.3-19.3s20.9 6.4 24.2 16.9L593.7 264H616c13.3 0 24 10.7 24 24s-10.7 24-24 24H576c-10.5 0-19.8-6.9-22.9-16.9l-4.1-13.4-29.4 147c-2.3 11.5-12.5 19.6-24.2 19.3s-21.4-9-23.1-20.6L446.7 248.3l-39 243.5c-1.9 11.7-12.1 20.3-24 20.2s-21.9-8.9-23.5-20.7L320 199.6 279.8 491.3c-1.6 11.8-11.6 20.6-23.5 20.7s-22.1-8.5-24-20.2l-39-243.5L167.8 427.4c-1.7 11.6-11.4 20.3-23.1 20.6s-21.9-7.8-24.2-19.3l-29.4-147-4.1 13.4C83.8 305.1 74.5 312 64 312H24c-13.3 0-24-10.7-24-24s10.7-24 24-24H46.3l26.8-87.1c3.2-10.5 13.2-17.5 24.2-16.9s20.2 8.5 22.3 19.3l20.5 102.6L168.2 84.6c1.7-11.7 11.7-20.5 23.6-20.6s22 8.5 23.9 20.2l38.5 240.9 42-304.4C297.9 8.8 308 0 320 0z"/></svg>';function comp(e){var r=document.querySelector("video");if(!0===e){let e,t,a,s;s=r._extension_source&&r._extension_compressor&&r._extension_gain?(e=r._extension_source.context,t=r._extension_source,a=r._extension_compressor,r._extension_gain):(e=new window.AudioContext,t=new window.MediaElementAudioSourceNode(e,{mediaElement:r}),a=new window.DynamicsCompressorNode(e),new window.GainNode(e,{gain:2})),a.threshold.value=-50,a.knee.value=40,a.ratio.value=12,a.attack.value=0,a.release.value=.25,t.connect(a),a.connect(s),s.connect(e.destination),r._extension_source=t,r._extension_compressor=a,r._extension_gain=s}else r._extension_source&&(r._extension_compressor.disconnect(),r._extension_gain.disconnect(),(e=r._extension_source).disconnect(),e.connect(e.context.destination))}function cb(e){var t=document.createElement("template"),a=(t.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon btn-compressor-on" viewBox="0 0 640 512"><path d="M320 0c12 0 22.1 8.8 23.8 20.7l42 304.4L424.3 84.2c1.9-11.7 12-20.3 23.9-20.2s21.9 8.9 23.6 20.6l28.2 197.3 20.5-102.6c2.2-10.8 11.3-18.7 22.3-19.3s20.9 6.4 24.2 16.9L593.7 264H616c13.3 0 24 10.7 24 24s-10.7 24-24 24H576c-10.5 0-19.8-6.9-22.9-16.9l-4.1-13.4-29.4 147c-2.3 11.5-12.5 19.6-24.2 19.3s-21.4-9-23.1-20.6L446.7 248.3l-39 243.5c-1.9 11.7-12.1 20.3-24 20.2s-21.9-8.9-23.5-20.7L320 199.6 279.8 491.3c-1.6 11.8-11.6 20.6-23.5 20.7s-22.1-8.5-24-20.2l-39-243.5L167.8 427.4c-1.7 11.6-11.4 20.3-23.1 20.6s-21.9-7.8-24.2-19.3l-29.4-147-4.1 13.4C83.8 305.1 74.5 312 64 312H24c-13.3 0-24-10.7-24-24s10.7-24 24-24H46.3l26.8-87.1c3.2-10.5 13.2-17.5 24.2-16.9s20.2 8.5 22.3 19.3l20.5 102.6L168.2 84.6c1.7-11.7 11.7-20.5 23.6-20.6s22 8.5 23.9 20.2l38.5 240.9 42-304.4C297.9 8.8 308 0 320 0z"/></svg>',document.createElement("template")),e=(a.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon btn-compressor-off" viewBox="0 0 640 512"><path d="M352 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V480c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM544 96c0-17.7-14.3-32-32-32s-32 14.3-32 32V416c0 17.7 14.3 32 32 32s32-14.3 32-32V96zM256 128c0-17.7-14.3-32-32-32s-32 14.3-32 32V384c0 17.7 14.3 32 32 32s32-14.3 32-32V128zm192 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V352c0 17.7 14.3 32 32 32s32-14.3 32-32V160zM160 224c0-17.7-14.3-32-32-32s-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V224zM0 256a32 32 0 1 0 64 0A32 32 0 1 0 0 256zm576 0a32 32 0 1 0 64 0 32 32 0 1 0 -64 0z"/></svg>',e.currentTarget);e.querySelector("svg").classList.contains("btn-compressor-on")?(e.querySelector("svg").replaceWith(a.content.firstChild),e.querySelector(".jw-text").innerText="Activar compresor",comp(!1)):(e.querySelector("svg").replaceWith(t.content.firstChild),e.querySelector(".jw-text").innerText="Desactivar compresor",comp(!0))}function loadPlayerC(enc){dec=atob(enc);url=dec.split('|');jwplayer('player').setup({"file":`${url[0]}`,"drm":{"clearkey":{"keyId":`${url[1]}`,"key":`${url[2]}`}},"autostart":true,"playbackratecontrols":true,"preload":"auto","liveSyncDuration":5,"liveTimeout":0});jwplayer('player').on('ready',()=>{jwplayer('player').addButton(cbutton,"Desactivar compresor",cb,"btn-compressor")});jwplayer('player').resize('100%','100%');jwplayer('player').on('firstFrame',()=>{comp(!0)})}function loadPlayer(enc){dec=atob(enc);url=dec.split('|');jwplayer('player').setup({"file":`${url[0]}`,"drm":{"clearkey":{"keyId":`${url[1]}`,"key":`${url[2]}`}},"autostart":true,"playbackratecontrols":true,"preload":"auto","liveSyncDuration":5,"liveTimeout":0});jwplayer('player').on('ready',()=>{jwplayer('player').addButton(cbutton,"Desactivar compresor",cb,"btn-compressor")});jwplayer('player').resize('100%','100%');jwplayer('player').on('firstFrame',()=>{jwplayer('player').setCurrentAudioTrack(1),comp(!0)})}
+    </script>
+</body>
+</html>
