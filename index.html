@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>TV</title>
+    <script src="https://content.jwplatform.com/libraries/Z79JsmAO.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Gabriola, sans-serif;
+        }
+        .sidebar {
+            width: 100px;
+            height: 100%;
+            background-color: #333;
+            position: fixed;
+            overflow: auto;
+        }
+        .sidebar button {
+            width: 100%;
+            background-color: #444;
+            color: white;
+            border: 2px solid #333;
+            cursor: pointer;
+            padding: 7px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .sidebar button:focus {
+            background-color: #333;
+        }
+        .content {
+            margin-left: 100px;
+            width: 100%;
+            height: 100vh;
+            background-color: #000;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+    <button onclick="loadPlayer('NnxUZWxlbWF4fGU3ZWMzNjRhZDY4NTRmZWRhZDc5NzUzOGNiNTg3ODBkfDU3ZGZiM2ZjYTJjYTM1YjM3ZmY4MWMzNTU5NWU5YmU4')">Telemax</button>
+    <button onclick="loadPlayer('N3xUb2RvTm90aWNpYXN8N2NlYjFjZDA2MjJjZDdlODhmY2RjOTlmZTNhNTVkZTZ8OTUxNjM3MDkzZDQxYzczODhhMWVmM2Y2MjBjZmVhMjE=')">TN</button>
+    <button onclick="loadPlayer('NnwyNl9UVl9IRHxlMzJhYWE0YjY3NDMwYjNiNTFiZTFlZmNlNWE3NGFjNXxhZDYwYzVlMWQzNzhhOTcyNzFiZjg2ODhmMDk0ZDA5Mg==')">Canal 26</button>
+    <button onclick="loadPlayer('N3xBbWVyaWNhMjR8M2IxYjAyN2RkMDExYWYyMGZkOTk1NmMxNmRjMDg0ZmJ8NDVmNzVhYWNmMDY1OTNjOWI2OTNmZTQyN2M2N2U1Yjg=')">A24</button>
+    <button onclick="loadPlayer('N3xJbnZlc3RpZ2FjaW9uX1BlcmlvZGlzdGljYXw1Mjk5Zjk2Zjg3M2FhMGYwZTQ3ZWRjNGUxNTc4NDcxN3w5ZDUzMTc2YjA5Njk0OTJmMmQ5M2YxODY3YmUxZGNlMQ==')">Ar/12</button>
+    <button onclick="loadPlayer('NnxOZXRfVFZ8ODlkNDMzMTY2ZWRkMzFkNTZkZjJhNTlkZjhlYzY3MDR8YjIwMTVmYWRlZDBhNDU2ZDEwYWE4ZGIxYjRjYmFjNjg=')">Net TV</button>
+    <button onclick="loadPlayer('M3xBcnRlYXJIRHw1MTc5MDE3ZjQ5MzI2ZDE0YWYwYTljZWVjODMxYWVlNnwwOWI0YTQ2M2IwMjllYmMyOGEyODhiZWQyZGE3MGE3Ng==')">El Trece</button>
+    <button onclick="loadPlayer('NnxUZWxlZmVIRHwzY2VjMWIxZWE5Nzk5ZGRhNTU5NmU2NGYzN2U1ZWQyMHxjNjlmM2FmZGUyMDg1ZGNhYWFkZGJmNTUyNDZhMDMyMw==')">Telefe</button>
+    <button onclick="loadPlayer('M3xDYW5hbDl8MjRmNGZmMjExMTM2YWU2NTEyYTFiNTUyMjAwZGI0MDV8NjAyMTIyZjg0MjZjNWM5NDJiOGMxOGQyOTljYzYwMjA=')">El Nueve</button>
+    <button onclick="loadPlayer('NnxDYW5hbDd8Y2M4YzgyYWMyZWM3ZTk3OTk1MjdjMjlkYjczNTRlODF8Y2M0YWFlMTczZGQyZWYxN2FlMjZiZTNmN2FlODc2NjI=')">TV Publica</button>
+    <button onclick="loadPlayer('M3xBbWVyaWNhVFZ8OGVhMjM1Y2UwODI2NDA4YjIyMWM0OTgxMTVhOWI2MmR8N2FhOTI2NmVkOTFlYTQ1MTA0ODMzNzAwMjlkZmNmNDU=')">America</button>
+    <button onclick="loadPlayer('NnxDYW5hbF8xMl9DQkF8OTA0MjI2NDBkM2U4NDYxNTlmYTQ1MGY4Mzg3MGVkNGF8YWJiM2NkOTRhZWNlMWE0NjJkZjI1YThmMjEwODVjY2E=')">El Doce Cordoba</button>
+    <button onclick="loadPlayer('NnxDYW5hbF84X0NCQXwxMDNjZTIxNGI0ZDA0YzhlYjRkZDQzNjcwZTk1NmRhZHwyMGUwMzA1NzZiOGRjNGRmMGQxYzY4ZTE2YWYzYmMwZg==')">Telefe Cordoba</button>
+    <button onclick="loadPlayer('NnxWb2x2ZXJ8MTk0ZTUzMTg0YTQyNGNlNjk4OWFkODJjNWYyOGZiYzV8NjVkNjBjNWNjNGRlMDMxMTcyYmUwYTZhNTFlZGJkZmU=')">Volver</button>
+    <button onclick="loadPlayer('NnxVbml2ZXJzYWxfQ2luZW1hfGY2YWUyZTE3MTczMDU1ZTRjYTY5ZGMxODk2MzQwNmFlfDVhOTU1YzI5ZWI4OGEwYjRjOWEyNTM4Y2M0YjNhZWEy')">Universal Cinema</button>
+    <button onclick="loadPlayer('N3xQYXJhbW91bnR8Yjg1YjcxMGVjZmYzZTM4ZjMxZmM4ZTI0OWIxYzFjZWZ8YTE1NDRjMTkzZGRlNmY4ODU4YzkzNThlZTY5YTYwYTc=')">Paramount</button>
+    <button onclick="loadPlayer('NnxDaW5lbWF4fDk3NzkyOGE5MmI4MmJhMzc4MTc0MWE2NDcwZjhmNDVifDUxZjRlNjI4MjdjMTI4ZjcyMTBiNzlhMTE1ODc2NjFh')">Cinemax</button>
+    <button onclick="loadPlayer('M3xDaW5lY2FuYWxIRHw2MDAzZTkyZGQwZDlmNTQ4MzI5MDE1YzllMTVkZDU3OHwyMTNjZjg1Y2I1ZjlmZTU2OTc1NzAwNGE3N2UwNTk0OA==')">Cinecanal</button>
+    <button onclick="loadPlayer('N3xTb255X01vdmllc3w4OGI5YzQxZTcyYWNkNWI1ODliYmZiNDc3Njk2OTc4MXw0M2I5NDAzZjdhOWUyOGZjMmQ3Y2JmMTAzNzNiODVhYQ==')">Sony Movies</button>
+    <button onclick="loadPlayer('M3xGWEhEfDlhYjljNDJjNzEzZTBmYjU1MTdkYzc3Y2MxOWQ2NzU1fGQ4YzI3MWI4MjM4N2U2MDliNmMxOWU1ZTc5MjQwYWZm')">FX</button>
+    <button onclick="loadPlayer('M3xBTUN8MWZhNmE4NmZkODBiNmQxNDI1ZGRlNzQ0ODJiNWRjOWN8NzQ0YzM2MzZkNTdhNjUxYWI0NDRjZjlmZTVmOTViMzM=')">AMC</button>
+    <button onclick="loadPlayer('M3xUTlRfSERfQXJnfGZhYWQxNzIyYTU3NWY0ZDllYzdiNzc0ZGI2M2M4NzljfGNmMDE4NDgzMDM0NGJhMzZhZDJmZmVmOWRkMmRkOWQw')">TNT</button>
+    <button onclick="loadPlayer('M3xTcGFjZXwwOTQyZTRlY2QxYmQzNTY3ZThmOTQ0N2Y0NWMyMGExMnxlZmNhNjI2NGYwNGNmNzM3M2RlMGMzMGVjNzlmZTkwOQ==')">Space</button>
+    <button onclick="loadPlayer('M3xGT1hIRHw4MDIzZTg1ZWY5ZDE3NTYxZWUxYjQyNDE3OWIxYjE1ZXw0NzdhZDE4OWYxZmNkMmJhZWMwMjYwNjgxMDdmODYyZg==')">Star Channel</button>
+    <button onclick="loadPlayer('N3xESEV8ZmY4MDAxNTZmODFmNzBjNjg3ZWNjYWFkZWRjMmNhMTV8OTM3YmExMzAxZTI3MDA4YjM0ZDAyYjlkOGEzMWEwZGI=')">DHE</button>
+    <button onclick="loadPlayer('N3xBRUhEfGRiMTIwMzU2MjdhNGIzZDcxOThiNzYxZjM2YjRhMjkwfDgwY2E3NjFhODc1OTkyYWMwZTUwYjA4NTFkNTU2M2Zl')">A&E</button>
+    <button onclick="loadPlayer('NnxTdHVkaW9fVW5pdmVyc2FsfGQ5YjU0MWUzY2QwNjRkNTY5ODQzZGE0Mjc4OGQ0MjYzfGJiYTVkMjZhZDUwNTFmYjNmMmNmN2UzZGQ4YTRhN2Q4')">Studio Universal</button>
+    <button onclick="loadPlayer('NnxUQ018YTVmNDRhNWUzMDcxNGNmM2JjZWU3YzdmMTVhMDhiNGV8YzNjMTQxYWU5NDFhYjk3NTAzMzljM2FmNDVhNjVjZTI=')">TCM</button>
+    <button onclick="loadPlayer('N3xBM19DaW5lfGQ2ZmY4ODFhNmYwNzk4NmE4MGQ2YWQ2ZjA0MWI1N2Q0fGI0MDFjODdjMmFiMTFhMWE0ODhlZTFjNDc0YjEwOWFl')">A3 Cine</button>
+    <button onclick="loadPlayer('NHxIQk9IRHw1MzE3MjgzZjQxMTBmYWMzZmIzYTBiZWNkOWY2NDhiY3wwNzU0YTAzYzkyNmIxMjQ3MjE2ZTAxZDlkYmNmYWMyOA==')">HBO</button>
+    <button onclick="loadPlayer('NnxIQk9fMnxjOTBjYzU3YWQyYzQzNmU1YTc3ZGIyZjhkOWRiMmQ4NXwwNGY2YzczOTg0YmRjZmZkMDEzMDUwNjA4NDk3OTM1ZA==')">HBO 2</button>
+    <button onclick="loadPlayer('NnxIQk9fUGx1c3xmMGU3ZjdkNDU4OTkwZWRmYWI3Yjk4YjQxMjU2NDYxNXw3OTIwNTc1NGI3Zjg0YTYyNjYxYzJkYmU5ZGU1ZGQ1ZA==')">HBO Plus</button>
+    <button onclick="loadPlayer('NnxIQk9fTXVuZGl8NzgyMWIyNjYyMTQ4ZmUzMzNkNTE5MWFjYmI4YTVjMWZ8YWU0M2YzZTI1NDUyMzdlYmRhNThiMTM4MTNiNWQzMjg=')">HBO Mundi</button>
+    <button onclick="loadPlayer('NnxIQk9fRXh0cmVtZXxkNTA0MDExYmJlZjQ2N2MwZGUzYTc1MzRlMzAyYTZkNHwzMzQxMDNlMmFiZTE2ZmFhN2Y5YWIyZTMwOTdjNWE1OA==')">HBO Xtreme</button>
+    <button onclick="loadPlayer('N3xIQk9fUE9QfGY0ZTFjZTVjZWY3ZTlhMTEwZmU5NjhmODg4MWIyMWZhfDZiYmUyMDYyYjE1MGIxMTQ5NmNkZDVmYmRkOWM4OWQ2')">HBO Pop</button>
+    <button onclick="loadPlayer('NnxIQk9fRmFtaWx5fDUzNTQ3MzEzMmY2ODA4MjE2MGI0ODk0ODJjYTM1ZjhlfGU5MGZkOTFmY2QzZmM4MDliZWQyYjFjMGQzN2Y3Mjk3')">HBO Family</button>
+    <button onclick="loadPlayer('N3xTb255SER8ZmQ5NjE5ZjlkN2MyZDUxMTVhMzM5OTQxMjc5ZTBiNGJ8YmY1NTYzNWU2NTkxZjkwNTY1OWZhMjdhYjNjYTI4MTI=')">Sony Channel</button>
+    <button onclick="loadPlayer('N3xXYXJuZXJIRHwwNjliZDNmMGI2YzI3OTQ2N2UwODU0OWYxN2JmNWJkMHw1YWZhN2UzNjlhNmRlMTA5MzgxOGE4NWFmOTEyYTc3NQ==')">Warner</button>
+    <button onclick="loadPlayer('NnxVbml2ZXJzYWxfQ2hhbm5lbF9IRHw2Y2Y5YTEzZDZmZDY1YTBmMmUxY2VlMzk2OWFhYjlmNXxlYTYxYzNjMWFkZWU3MWI1YzJlOTc0NGU0MWQ0Yjc1Zg==')">Universal TV</button>
+    <button onclick="loadPlayer('N3xDb21lZHlDZW50cmFsfDQwMTNmNzg0YzVlZjQzMThhZDQ3MDI0ZTYxZWIwOTRlfGJhZDQzM2E1NDdmOTdjN2Y2NWNkYTVlODNiOGRkNDE2')">Comedy Central</button>
+    <button onclick="loadPlayer('M3xHb3VybWV0fDkzZDg1M2FjNGM4ZTI0Y2YwMjk1ZjZmOTdlZTUzYmQzfGZhNTgxN2ZhYjRmYjA1NGNjZWExYWJiOWYzZDc2N2Vk')">Gourmet</button>
+    <button onclick="loadPlayer('NnxTdW5fQ2hhbm5lbHwxNTgxNzc2OTJhYTM0NjNlYWU1ZjRlMWY3MjQwM2U5Y3wxYzZjMDI2ZmJhOWNmN2VjYjU3NmM3YmVkY2UwZWFkNA==')">Sun Channel</button>
+    <button onclick="loadPlayer('NnxBbnRlbmFfM3wxZTFhZDQyMmE2NzE0NDgyYjY2ZmE3MDJjMTZlNTBjNnw0ZmRmMjhhMGFiOTEzNTZjYTU1YTc1ZjRlOWJmOGM5Mg==')">Antena 3</button>
+    <button onclick="loadPlayer('NnxUVl9Fc3BhbmF8NTNlMGEzNzQxZTJlNGZmNTg0M2YxNjViNTMzMDkwODh8NDUwOTVjYWFiZDlhMzU5Y2Q3ZWEzOTEwZDg2NWQ2NDM=')">TVE</button>
+    <button onclick="loadPlayer('M3xBZHVsdF9Td2ltfDliZTE0MzJlMWU1OTRjOGQwNjQ4YTQ0ZDNkOWYwYzQ2fDhlNmM3ODViMTRkOTczYzUwNDA3NGIxOTIwZjExYjE1')">Adult Swim</button>
+    <button onclick="loadPlayer('NnxUb29uY2FzdHwxMDYzOGE3MjJlYjU0YzY0YmZiMGU3YTc3NDgzNjg2YXw0MWE3ZDNkNTIyZTE5MjE1YjdlOGY2MTFiNjkwMmQ2MQ==')">Tooncast</button>
+    <button onclick="loadPlayer('M3xDYXJ0b29uTmV0d29ya3xkN2RmNTZlZmFhMzZhNzExNDFkMjM4ODU0Y2M0NmQxZHw4YWJiMmVlOTE1MGQ4YjJhZjhlYmVjMGRlMGY4MzNjOA==')">Cartoon Network</button>
+    <button onclick="loadPlayer('M3xOaWNrZWxvZGVvbnw2MWMxOGNlZmVjYzJkMDY3YmVhYTlmZjE4MTMwNTM0NXwzOGQ2ZjY1MGNiZjlhMzhmZDlmMzVjMDFmOThlNjQ3YQ==')">Nick</button>
+    <button onclick="loadPlayer('N3xEcmVhbXdvcmtzfDdmMzBjNDNlNDc1NDQ0MTIyMjFmZDY0MjAxZDkyZjRifGY4M2QwOWQ3NWEwOTQ2YjFkNzFhYTQ4YzIwMWI0ZDhi')">Dream Works</button>
+    <button onclick="loadPlayer('NnxEaXNjb3ZlcnlfS2lkc3xmZmIyZjBmNjNjMjNhMzU5MmQ0NjUzZTkzOGI5Y2ExOXxkMzY2MWFlODgxZmM1NWZjN2ExNTgxNWNkNDM5NzQ3Yg==')">Discovery Kids</button>
+    <button onclick="loadPlayer('N3xBbmltYWxQbGFuZXR8NDE0NmE4ZWNiYjA1NDBkYzgwN2M2Mzg5ZWU4N2UwYmN8MGMzY2RjMWIzZTQ2MTdjNTczNjEyNjVlOWZhNGM1YmQ=')">Animal Planet</button>
+    <button onclick="loadPlayer('NnxEaXNjb3ZlcnlfU2NpZW5jZXw0NmJhNDA5ZmIwNGU0MGZiODZiNDY2ZDk3ZTNhOTU4OHxmMTI5ZmI5YjVkMjEzZTIwZTJhYmU1MjliOGNmMjU5Nw==')">Discovery Science</button>
+    <button onclick="loadPlayer('M3xEaXNjb3ZlcnlIRHxjMjgzYzg0YTdhZjBkN2M4YjliNjEyYThmYjIyYTAwMXxmNDU1MTBjNzIxZWViZDZlYWE4NmEyZTE2Y2NiZDc3ZA==')">Discovery</button>
+    <button onclick="loadPlayer('M3xOYXRHZW9IRHw0YmUwYzYxY2VkZGM2MjI5NGNjOWUyM2I2MjdhZjUzZHw4NTJjMTkzNWQxMWMzYzUzZDBhMWNlZmYzYmIzYmYxNg==')">Nat Geo</button>
+    <button onclick="loadPlayer('N3xIaXN0b3J5SER8ZTgyMzE4ZTUxOGJhNzBjZWEzZDdiMzdiZWY5OWU2OTJ8YTA1ZmNiNjM0YzA3MWE1MTRlMzAzOWUxYzI3NGI0ZGI=')">History</button>
+    <button onclick="loadPlayer('NnxIaXN0b3J5XzJ8ZWNiZTk3ZWMzNDc4NDMwNGIzOTBhMTJiYTM4NTRjY2Z8NWEwZWUzNmVkOWI4OTIwY2IxOTU0NmZkOTJmMmQ0MTU=')">History2</button>
+    <button onclick="loadPlayer('N3xNVFYwMHwxZjBjMDllZDllNTg0MWNmODY3YmE2ZWIzY2RmZDYxZHw4MDJjODljNmJhZTZhMjQ1YWFhZmNmNDBjMTk4NmZjMQ==')">MTV 00s</button>
+    <button onclick="loadPlayer('NnxNVFZfSGl0c3w2MTAwOGRmYzg2NzU0NGNkODcyZGU5OWIxZjJiODJjZnw3MTY0NDk3NTYzMTZiOTFjNTQ4MDNhYWEyMmEyZmJmMA==')">MTV Hits</button>
+    <button onclick="loadPlayer('N3xGbG93X011c2ljX1hQfGIyYWFlNDRhNzQxNDRiZThiMjExOGUyMGQxNDEyYmFifDhhN2FlOTk2ZDEyZDhkNWQ1NjM3ZDEwNDRmOGUwOGI3')">Flow Music XP</button>
+    <button onclick="loadPlayer('N3xGbG93X011c2ljXzF8ZjM0Y2Q3NzA5ZjA5M2QyM2Q0ZGIwMDkxMDdkOTY4NjJ8ZDhhODI5MTM4ZDk3MGI0NWU4NjdjOTczM2EzMWIyZjA=')">Flow Music 1</button>
+    <button onclick="loadPlayer('N3xGbG93X011c2ljXzJ8NTk2YjU5OTU4MGIzOWFlMmYzYzQxM2Y3ZWFlMzY5MDJ8MmQ3ZTNkNWQzMWY2ODY5MGZkODc3YTExMWY4NGU4ZTM=')">Flow Music 2</button>
+    <button onclick="loadPlayer('N3xGbG93X011c2ljXzN8ZTA3OGIxNWVkNzcwZWM3MWY4MDNjMGVjYzQzZGUwMzN8NzAxMGJjY2RhNTQ0Zjc0ZDFiNDI1YzRjZWJkMDgyZDQ=')">Flow Music 3</button>
+    <button onclick="loadPlayer('N3xUeUNTcG9ydHwyYjIxYzhmYTlhMzI5Y2NlMzExYTRjNGE0YWE5OTZhMXxjYzIzZWExZmIzMjYyOWY5ZTFmNDhjOGRlZWFlM2U1Yg==')">TyC Sports</button>
+    <button onclick="loadPlayer('M3xFU1BOMkhEfGU4ODRiNzExYWIxMTFiZWI4YTdiYTFlN2JjYmRjOWJmfGNiODllZTM5NjE1OTllM2U2NDhhNWFhZDYwODk1ZjM0')">ESPN</button>
+    <button onclick="loadPlayer('NnxFU1BOMl9Bcmd8NjVhNWJmYTNjN2E3MmRkZTYwYmU5YjBjNzQwNmM4ZmN8MGI0MGFlOWY3OGE3YmFjM2I1N2VjYmY3MmQzYzA4MWU=')">ESPN 2</button>
+    <button onclick="loadPlayer('M3xFU1BOM3xmNGM5Zjk3ZTJhMzZmZWFiMGU1MDc3ZjJiNDRjYmM0ZXwxNzQzY2QwM2RmZTM3MzZiMmM5NWRhOTFhNzgzYWYzOA==')">ESPN 3</button>
+    <button onclick="loadPlayer('M3xGb3hTcG9ydHN8Y2JjMmEwYzdhMzhkZjBhYTMzMzNjZDcxODQxZDNiMGR8YWFjNjFiNzMwZTJhYzFkZjIzZjFlODcyZTc1NDFjMWI=')">Fox Sports</button>
+    <button onclick="loadPlayer('M3xGb3hTcG9ydHMySER8Yzk4ZGRmZmM0NzBmZTQ0OWFlMWE4ZDY0OTIxMTY5NzZ8NTA4NmQzNzBlODQwMDEwMjMyY2Y0NTMyYjE2ZTE5N2Y=')">Fox Sports 2</button>
+    <button onclick="loadPlayer('M3xGb3hTcG9ydHMzSER8NTViNDczOTBjZjllNDk5N2RhZTZkYWM4NWUwNTc4NzV8ZmEzOWU4NTU1NDNjNWQ3MGYzMDYwMGQ1OWU1ZTRjMWI=')">Fox Sports 3</button>
+    <button onclick="loadPlayer('NnxUTlRfU3BvcnRzX0hEfGJjODBmYTNkYTY5NmU1MDNmOTQwZmRlNWY2ODFhMWM1fGVhNDZlNGU5ZjExMzJlOGRkNzFmYjc3ZjdkNTUwNThh')">TNT Sports</button>
+    <button onclick="loadPlayer('N3xGb3hfU3BvcnRzX1ByZW1pdW5fSER8NGMyMzBkYmM3ZjZhNGJmYTZhZDBhYTczZmY3OTIzNzR8NDE4NmE3YzJhMTVmNTkwYTkzOTk4ODZmZWFlYzQyNTc=')">ESPN Premium</button>
+    <button onclick="loadPlayer('M3xUeUNfSW50ZXJuYWNpb25hbHw1OGUxZWJlNzVkOTQ0ZjZhOThlYTY3YjFjN2MwYTU3MnwxYzMxMWIwNjlkYmNlMzFjZThlNjJhNmU3ZTI0MzNlYg==')">TyC Internacional</button>
+    <button onclick="loadPlayer('M3xFdmVudG9zMUhEfDVjODZlMjM3MzE3YzIyMzFhYzFiYzEzMGU5OTVmYWQ2fGRjYWNmN2IyMzllZTAzZGYzYzY5Y2ExMWRiY2RlNGVi')">Eventos 1</button>
+    <button onclick="loadPlayer('NnxFdmVudG9zXzJfSER8ZTU0ZTllYTg3YTYzNDY1OGZiYmEwZTM4MGFhNzAxYTd8NGU0ODZkMjVkN2QwZTdkMTMxNzQzYjI4NTk2M2M2NDM=')">Eventos 2</button>
+    <button onclick="loadPlayer('N3xFdmVudG9zX0hEX1V5fDQ4ZDBlMzRjODc5N2M1YzJhNzQyZDI2MzBhOGZiOTc1fGZiNWQxMmI5ZDhmZWJlODM2ZTU2NzBhYmQwMDNkZGNh')">Eventos UY</button>
+    <button onclick="loadPlayer('NHxFdmVudG9zXzJfVVl8ODdiZmRlZDJiZGZiZDNhZDlkY2U0ZDMwYjI3MzlmZDF8ZTgwYjBkNjZkNjBmYTBhMmQyNGQ4YjM2MDU1YTZmZWY=')">Eventos UY 2</button>
+    <button onclick="loadPlayer('NHxFdmVudG9zM19VWXxmNzc0YjA2YTMwMDc4MzU5NmYyN2I1NTIyMjZkZTljMHw0ZDYyNTZiMjhiNDg3YmNmOTA2YmNmMDMyODYzNTc0Nw==')">Eventos UY 3</button>
+    <button onclick="loadPlayer('N3xHRU5fVFZ8NDllYjkyNGJhOTk4Y2E3ZmJiYWVlMzBkY2VmMWVjYjR8NmUxMzFiMDRiMmU4NzU5OGZiNTg4YWMyMDU2NzM2OTg=')">GEN TV</button>
+    </div>
+    <div class="content"><div id="player"></div></div>
+    <script>
+    cbutton='<svg xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon btn-compressor-on" viewBox="0 0 640 512"><path d="M320 0c12 0 22.1 8.8 23.8 20.7l42 304.4L424.3 84.2c1.9-11.7 12-20.3 23.9-20.2s21.9 8.9 23.6 20.6l28.2 197.3 20.5-102.6c2.2-10.8 11.3-18.7 22.3-19.3s20.9 6.4 24.2 16.9L593.7 264H616c13.3 0 24 10.7 24 24s-10.7 24-24 24H576c-10.5 0-19.8-6.9-22.9-16.9l-4.1-13.4-29.4 147c-2.3 11.5-12.5 19.6-24.2 19.3s-21.4-9-23.1-20.6L446.7 248.3l-39 243.5c-1.9 11.7-12.1 20.3-24 20.2s-21.9-8.9-23.5-20.7L320 199.6 279.8 491.3c-1.6 11.8-11.6 20.6-23.5 20.7s-22.1-8.5-24-20.2l-39-243.5L167.8 427.4c-1.7 11.6-11.4 20.3-23.1 20.6s-21.9-7.8-24.2-19.3l-29.4-147-4.1 13.4C83.8 305.1 74.5 312 64 312H24c-13.3 0-24-10.7-24-24s10.7-24 24-24H46.3l26.8-87.1c3.2-10.5 13.2-17.5 24.2-16.9s20.2 8.5 22.3 19.3l20.5 102.6L168.2 84.6c1.7-11.7 11.7-20.5 23.6-20.6s22 8.5 23.9 20.2l38.5 240.9 42-304.4C297.9 8.8 308 0 320 0z"/></svg>';function comp(e){var r=document.querySelector("video");if(!0===e){let e,t,a,s;s=r._extension_source&&r._extension_compressor&&r._extension_gain?(e=r._extension_source.context,t=r._extension_source,a=r._extension_compressor,r._extension_gain):(e=new window.AudioContext,t=new window.MediaElementAudioSourceNode(e,{mediaElement:r}),a=new window.DynamicsCompressorNode(e),new window.GainNode(e,{gain:2})),a.threshold.value=-50,a.knee.value=40,a.ratio.value=12,a.attack.value=0,a.release.value=.25,t.connect(a),a.connect(s),s.connect(e.destination),r._extension_source=t,r._extension_compressor=a,r._extension_gain=s}else r._extension_source&&(r._extension_compressor.disconnect(),r._extension_gain.disconnect(),(e=r._extension_source).disconnect(),e.connect(e.context.destination))}function cb(e){var t=document.createElement("template"),a=(t.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon btn-compressor-on" viewBox="0 0 640 512"><path d="M320 0c12 0 22.1 8.8 23.8 20.7l42 304.4L424.3 84.2c1.9-11.7 12-20.3 23.9-20.2s21.9 8.9 23.6 20.6l28.2 197.3 20.5-102.6c2.2-10.8 11.3-18.7 22.3-19.3s20.9 6.4 24.2 16.9L593.7 264H616c13.3 0 24 10.7 24 24s-10.7 24-24 24H576c-10.5 0-19.8-6.9-22.9-16.9l-4.1-13.4-29.4 147c-2.3 11.5-12.5 19.6-24.2 19.3s-21.4-9-23.1-20.6L446.7 248.3l-39 243.5c-1.9 11.7-12.1 20.3-24 20.2s-21.9-8.9-23.5-20.7L320 199.6 279.8 491.3c-1.6 11.8-11.6 20.6-23.5 20.7s-22.1-8.5-24-20.2l-39-243.5L167.8 427.4c-1.7 11.6-11.4 20.3-23.1 20.6s-21.9-7.8-24.2-19.3l-29.4-147-4.1 13.4C83.8 305.1 74.5 312 64 312H24c-13.3 0-24-10.7-24-24s10.7-24 24-24H46.3l26.8-87.1c3.2-10.5 13.2-17.5 24.2-16.9s20.2 8.5 22.3 19.3l20.5 102.6L168.2 84.6c1.7-11.7 11.7-20.5 23.6-20.6s22 8.5 23.9 20.2l38.5 240.9 42-304.4C297.9 8.8 308 0 320 0z"/></svg>',document.createElement("template")),e=(a.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon btn-compressor-off" viewBox="0 0 640 512"><path d="M352 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V480c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM544 96c0-17.7-14.3-32-32-32s-32 14.3-32 32V416c0 17.7 14.3 32 32 32s32-14.3 32-32V96zM256 128c0-17.7-14.3-32-32-32s-32 14.3-32 32V384c0 17.7 14.3 32 32 32s32-14.3 32-32V128zm192 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V352c0 17.7 14.3 32 32 32s32-14.3 32-32V160zM160 224c0-17.7-14.3-32-32-32s-32 14.3-32 32v64c0 17.7 14.3 32 32 32s32-14.3 32-32V224zM0 256a32 32 0 1 0 64 0A32 32 0 1 0 0 256zm576 0a32 32 0 1 0 64 0 32 32 0 1 0 -64 0z"/></svg>',e.currentTarget);e.querySelector("svg").classList.contains("btn-compressor-on")?(e.querySelector("svg").replaceWith(a.content.firstChild),e.querySelector(".jw-text").innerText="Activar compresor",comp(!1)):(e.querySelector("svg").replaceWith(t.content.firstChild),e.querySelector(".jw-text").innerText="Desactivar compresor",comp(!0))}function loadPlayer(enc){dec=atob(enc);url=dec.split('|');cv=atob('aHR0cHM6Ly9jaHJvbWVjYXN0LmN2YXR0di5jb20uYXIvbGl2ZS9j')+`${url[0]}`+atob('ZWRzLw==')+`${url[1]}`+atob('L1NBX0xpdmVfZGFzaF9lbmNfQy8=')+`${url[1]}`+atob('Lm1wZA==');jwplayer('player').setup({"file":cv,"drm":{"clearkey":{"keyId":`${url[2]}`,"key":`${url[3]}`}},"autostart":true,"playbackratecontrols":true,"preload":"auto","liveSyncDuration":5,"liveTimeout":0});jwplayer('player').on('ready',()=>{jwplayer('player').addButton(cbutton,"Desactivar compresor",cb,"btn-compressor")});jwplayer('player').resize('100%','100%');jwplayer('player').on('firstFrame',()=>{jwplayer('player').setCurrentAudioTrack(1),comp(!0)})}
+    </script>
+</body>
+</html>
